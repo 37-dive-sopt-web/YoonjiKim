@@ -122,7 +122,6 @@ a {
   gap: 12px; /* SNS 아이콘 사이 간격 */
 }
 
-
 .social-links {
   display: flex;
   gap: 12px;
@@ -173,7 +172,9 @@ a {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -413,7 +414,7 @@ a {
   .cards-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .cards {
     padding: 40px 16px;
   }
@@ -423,6 +424,7 @@ a {
 .gallery {
   padding: 60px 0;
   background-color: var(--bg-color);
+  overflow: hidden; /* 가로 스크롤 숨김 */
 }
 
 .gallery-container {
@@ -438,39 +440,45 @@ a {
   padding: 0 16px;
 }
 
-/* 가로 스크롤 컨테이너 */
+/* 무한 스크롤 */
 .gallery-scroll {
+  overflow: hidden;
+  position: relative;
+}
+
+/* hover 시 애니메이션 멈춤 */
+.gallery-scroll:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+/* 가로 스크롤 트랙 */
+.gallery-track {
   display: flex;
   gap: 16px;
-  padding: 0 16px;
-  overflow-x: auto; /* 가로 스크롤 활성화 */
-  scroll-padding: 16px; /* 스크롤 시 패딩 고려 */
+  animation: scroll 40s linear infinite;
+  width: fit-content;
+  padding-left: 16px; /* 시작 여백 */
 }
 
-/* 스크롤바 스타일 */
-.gallery-scroll::-webkit-scrollbar {
-  height: 8px;
-}
-
-.gallery-scroll::-webkit-scrollbar-track {
-  background: #f0f0f0;
-  border-radius: 4px;
-}
-
-.gallery-scroll::-webkit-scrollbar-thumb {
-  background: var(--main-color);
-  border-radius: 4px;
+/* 무한 스크롤 애니메이션 */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* 갤러리 - 개별 사진 */
 .gallery-img {
-  flex-shrink: 0; /* 크기 고정 */
+  flex-shrink: 0;
   width: 300px;
   height: 300px;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  scroll-snap-align: start;
 }
 
 .gallery-img img {
@@ -480,8 +488,10 @@ a {
   transition: transform 0.3s ease;
 }
 
+/* hover 효과 */
 .gallery-img:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 138, 0, 0.3);
   z-index: 10;
 }
 
