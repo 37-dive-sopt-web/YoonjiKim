@@ -62,6 +62,7 @@ a {
   height: var(--header-height);
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-color);
+  z-index: 1000; /* 다른 요소(ex. 카드)들 위에 표시 */
 }
 
 .header-container {
@@ -290,7 +291,7 @@ a {
 
 /* 카드 섹션 */
 .cards {
-  padding: 60px 16px;
+  padding: 20px 16px;
   background-color: var(--bg-color);
 }
 
@@ -304,26 +305,29 @@ a {
   font-weight: bold;
   color: var(--text-color);
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 /* 카드 그리드 */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 기본 3열 */
+  grid-template-columns: repeat(5, 1fr); /* 기본 5열 */
   gap: 24px;
 }
 
-/* 개별 카드 */
 .card {
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 카드 이미지 영역 */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
 .card-image {
   width: 100%;
   aspect-ratio: 1 / 1; /* 정사각형 비율 */
@@ -334,11 +338,14 @@ a {
 .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 이미지 찌그러지지 않게 */
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-/* 카드 콘텐츠 */
+.card:hover .card-image img {
+  transform: scale(1.1);
+}
+
 .card-content {
   padding: 20px;
   position: relative;
@@ -353,12 +360,11 @@ a {
 
 .card-description {
   font-size: var(--text-small);
-  color: var(--secondary-color);
+  color: var(--text-color);
   line-height: 1.6;
   margin-bottom: 16px;
 }
 
-/* 하트 버튼 */
 .card-like {
   position: absolute;
   top: 20px;
@@ -374,4 +380,41 @@ a {
 .card-like:hover {
   transform: scale(1.2);
   filter: grayscale(0%);
+  color: var(--main-color);
+  transition: color 0.2s ease;
+}
+
+/* 반응형 그리드 */
+
+/* 5열 -> 4열 */
+@media (max-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 4열 -> 3열 */
+@media (max-width: 1000px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 3열 -> 2열 */
+@media (max-width: 750px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* 2열 -> 1열 */
+@media (max-width: 450px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cards {
+    padding: 40px 16px;
+  }
 }
