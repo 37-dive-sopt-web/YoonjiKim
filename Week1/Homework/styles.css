@@ -418,3 +418,73 @@ a {
     padding: 40px 16px;
   }
 }
+
+/* 갤러리 섹션 */
+.gallery {
+  padding: 60px 0;
+  background-color: var(--bg-color);
+}
+
+.gallery-container {
+  max-width: 100%;
+}
+
+.gallery-title {
+  font-size: var(--text-xlarge);
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 0 16px;
+}
+
+/* 가로 스크롤 컨테이너 */
+.gallery-scroll {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+  overflow-x: auto; /* 가로 스크롤 활성화 */
+  scroll-padding: 16px; /* 스크롤 시 패딩 고려 */
+}
+
+/* 스크롤바 스타일 */
+.gallery-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-scroll::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 4px;
+}
+
+/* 갤러리 - 개별 사진 */
+.gallery-img {
+  flex-shrink: 0; /* 크기 고정 */
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.gallery-img:hover img {
+  transform: scale(1.1);
+}
