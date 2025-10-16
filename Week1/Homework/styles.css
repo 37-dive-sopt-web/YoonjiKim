@@ -56,12 +56,6 @@ a {
   color: inherit;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 /* 헤더 스타일 */
 .header {
   position: fixed;
@@ -77,9 +71,8 @@ img {
   width: var(--max-width);
   height: 100%;
   margin: 0 auto;
-  padding: 0 20px;
-  min-width: var(--min-width);
   padding: 0 16px;
+  min-width: var(--min-width);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,12 +92,11 @@ img {
   gap: 8px; /* 프로필 이미지와 텍스트 사이 간격 */
 }
 
-.header-profile img {
+.header-profile-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  object-fit: cover; /* 프로필 이미지 비율 유지 */
-  border: 2px solid var(--main-color);
+  object-fit: cover; /* 이미지를 원형 안에 꽉 채우면서 비율 유지 */
 }
 
 /* 가운데: 이름/타이틀 */
@@ -130,20 +122,25 @@ img {
   justify-content: flex-end;
   align-items: center;
   gap: 12px; /* SNS 아이콘 사이 간격 */
-} 
+}
+
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
 
 .social-links a {
-  font-size: var(--text-medium);
-  color: var(--text-color);
-  transition: color 0.3s ease;
+  display: inline-block;
+  transition: opacity 0.3s ease;
 }
 
 .social-links a:hover {
-  color: var(--main-color);
+  opacity: 0.7;
 }
 
-.social-links svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor; /* 아이콘 색상을 텍스트 색상과 동일하게 */
+.icon_image {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
