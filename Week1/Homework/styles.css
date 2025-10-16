@@ -31,10 +31,7 @@
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
   background-color: var(--bg-color);
 }
 
@@ -64,6 +61,7 @@ a {
   right: 0;
   height: var(--header-height);
   border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-color);
 }
 
 .header-container {
@@ -193,7 +191,7 @@ a {
 .introduce-subtitle {
   font-size: var(--text-medium);
   color: var(--text-color);
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 
 /* 버튼 영역 */
@@ -288,4 +286,92 @@ a {
   border-color: var(--main-color);
   transform: translateY(-2px);
   cursor: pointer;
+}
+
+/* 카드 섹션 */
+.cards {
+  padding: 60px 16px;
+  background-color: var(--bg-color);
+}
+
+.cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards-title {
+  font-size: var(--text-xlarge);
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* 카드 그리드 */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 기본 3열 */
+  gap: 24px;
+}
+
+/* 개별 카드 */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* 카드 이미지 영역 */
+.card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 정사각형 비율 */
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지 찌그러지지 않게 */
+  transition: transform 0.3s ease;
+}
+
+/* 카드 콘텐츠 */
+.card-content {
+  padding: 20px;
+  position: relative;
+}
+
+.card-title {
+  font-size: var(--text-large);
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: var(--text-small);
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* 하트 버튼 */
+.card-like {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.card-like:hover {
+  transform: scale(1.2);
+  filter: grayscale(0%);
 }
