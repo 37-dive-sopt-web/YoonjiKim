@@ -498,3 +498,53 @@ a {
 .gallery-img:hover img {
   transform: scale(1.1);
 }
+
+/* 사이드 네비바 */
+.side-nav {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  text-align: center;
+  display: block;
+  padding: 12px 20px;
+  background-color: white;
+  color: var(--text-color);
+  font-size: var(--text-small);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  border-bottom: none;
+}
+
+/* 첫 번째 - 위쪽만 둥글게 */
+.nav-item:first-child .nav-link {
+  border-radius: 12px 12px 0 0;
+}
+
+/* 마지막 - 아래쪽만 둥글게 */
+.nav-item:last-child .nav-link {
+  border-radius: 0 0 12px 12px;
+  border-bottom: 1px solid var(--border-color); /* 마지막 경계선 추가 */
+}
+
+/* hover 효과 */
+.nav-link:hover {
+  background-color: var(--main-color);
+  color: white;
+  border-color: var(--main-color);
+}
