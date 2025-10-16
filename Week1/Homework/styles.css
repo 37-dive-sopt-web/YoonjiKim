@@ -35,7 +35,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
   background-color: var(--bg-color);
 }
 
@@ -143,4 +142,101 @@ a {
   width: 24px;
   height: 24px;
   display: block;
+}
+
+/* 소개(히어로) 섹션 */
+.introduce {
+  padding-top: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+
+.introduce-container {
+  width: var(--max-width);
+  min-width: var(--min-width);
+  padding: 0 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 원형 프로필 이미지 */
+.introduce-image {
+  margin-bottom: 16px;
+}
+
+.introduce-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* 프로필 이미지 hover 효과 */
+.introduce-img:hover {
+  transform: scale(1.1); /* 10% 확대 */
+}
+
+/* 소개 문구 */
+.introduce-title {
+  font-size: var(--text-xlarge);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.introduce-subtitle {
+  font-size: var(--text-medium);
+  color: var(--text-color);
+  margin-bottom: 24px;
+}
+
+/* 버튼 영역 */
+.introduce-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 버튼 공통 스타일 */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: var(--text-medium);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+/* 버튼 (기대돼요) */
+.btn-good {
+  background-color: white;
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.btn-good:hover {
+  background-color: var(--main-color);
+  color: white;
+  transform: translateY(-2px); /* 살짝 위로 */
+}
+
+/* 버튼 (안 기대돼요) */
+.btn-bad {
+  background-color: white;
+  color: var(--point-color);
+  border: 2px solid var(--point-color);
+}
+
+.btn-bad:hover {
+  background-color: var(--point-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 138, 0, 0.3);
 }
