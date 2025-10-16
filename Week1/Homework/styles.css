@@ -227,7 +227,7 @@ a {
   transform: translateY(-2px); /* 살짝 위로 */
 }
 
-/* 버튼 (안 기대돼요) */
+/* 버튼 (열심히 해야지) */
 .btn-bad {
   background-color: white;
   color: var(--point-color);
@@ -239,4 +239,53 @@ a {
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 138, 0, 0.3);
+}
+
+/* 스킬 섹션 */
+.skills {
+  padding: 60px 16px;
+}
+
+.skills-container {
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+  margin: 0 auto;
+}
+
+.skills-title {
+  font-size: var(--text-xlarge);
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* 스킬 태그 컨테이너 */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* 태그 사이 간격 */
+  justify-content: center;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  font-size: var(--text-medium);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+/* 태그 hover 효과 */
+.skill-tag:hover {
+  background-color: var(--main-color);
+  color: white;
+  border-color: var(--main-color);
+  transform: translateY(-2px);
+  cursor: pointer;
 }
