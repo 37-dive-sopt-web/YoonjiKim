@@ -1,51 +1,149 @@
 /* css reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* 글로벌 스타일 */
-:root{
+:root {
   /* 색상 */
-    --main-color: #FF8A00;
-    --sub-color: #FFD100;
-    --point-color: #00C8FF;
-    --text-color: #000000;
-    --bg-color: #FFFFFF;
-    --border-color: #E0E0E0;
+  --main-color: #ff8a00;
+  --sub-color: #ffd100;
+  --point-color: #00c8ff;
+  --text-color: #000000;
+  --bg-color: #ffffff;
+  --border-color: #e0e0e0;
 
   /* 폰트 */
-    --text-small: 12px;
-    --text-medium: 16px;
-    --text-large: 20px;
-    --text-xlarge: 24px;
+  --text-small: 12px;
+  --text-medium: 16px;
+  --text-large: 20px;
+  --text-xlarge: 24px;
 
   /* 기타 */
-    --border-radius: 4px; 
-    --header-height: 80px;
-    --footer-height: 50px;
-    --max-width: 375px;
-    --min-width: 320px;
+  --border-radius: 4px;
+  --header-height: 80px;
+  --footer-height: 50px;
+  --max-width: 375px;
+  --min-width: 320px;
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    background-color: var(--bg-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: var(--bg-color);
 }
 
-ul, ol {
-    list-style: none;
+ul,
+ol {
+  list-style: none;
 }
 
 button {
-    border: none;
-    background-color: none;
-    cursor: pointer;
-    font-family: inherit;
+  border: none;
+  background-color: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 헤더 스타일 */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  min-width: var(--min-width);
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 왼쪽: 프로필 */
+.header-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 프로필 이미지와 텍스트 사이 간격 */
+}
+
+.header-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover; /* 프로필 이미지 비율 유지 */
+  border: 2px solid var(--main-color);
+}
+
+/* 가운데: 이름/타이틀 */
+.header-center {
+  text-align: center;
+  flex-grow: 1; /* 가운데 영역이 가능한 공간을 모두 차지하도록 */
+}
+
+.header-title {
+  font-size: var(--text-large);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.header-subtitle {
+  font-size: var(--text-medium);
+  color: var(--point-color);
+}
+
+/* 오른쪽: SNS 아이콘 */
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px; /* SNS 아이콘 사이 간격 */
+} 
+
+.social-links a {
+  font-size: var(--text-medium);
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--main-color);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor; /* 아이콘 색상을 텍스트 색상과 동일하게 */
 }
