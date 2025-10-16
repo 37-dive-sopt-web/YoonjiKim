@@ -9,12 +9,10 @@
 /* 글로벌 스타일 */
 :root {
   /* 색상 */
-  --main-color: #ff8a00;
-  --sub-color: #ffd100;
+  --main-color: #2c2c2c;
   --point-color: #00c8ff;
   --text-color: #000000;
   --bg-color: #ffffff;
-  --border-color: #e0e0e0;
 
   /* 폰트 */
   --text-small: 12px;
@@ -381,7 +379,7 @@ a {
 .card-like:hover {
   transform: scale(1.2);
   filter: grayscale(0%);
-  color: var(--main-color);
+  color: var(--point-color);
   transition: color 0.2s ease;
 }
 
@@ -547,4 +545,42 @@ a {
   background-color: var(--main-color);
   color: white;
   border-color: var(--main-color);
+}
+
+/* 푸터 섹션 */
+.footer {
+  background: var(--main-color);
+  color: white;
+  padding: 40px 16px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.footer-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-size: var(--text-medium);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.footer-subtext {
+  font-size: var(--text-small);
+  color: #999;
+  line-height: 1.6;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 480px) {
+  .footer {
+    padding: 32px 16px;
+    margin-top: 60px;
+  }
+  
+  .footer-text {
+    font-size: var(--text-small);
+  }
 }
