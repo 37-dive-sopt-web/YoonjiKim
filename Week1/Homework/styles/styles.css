@@ -1,0 +1,51 @@
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 글로벌 스타일 */
+:root{
+  /* 색상 */
+    --main-color: #FF8A00;
+    --sub-color: #FFD100;
+    --point-color: #00C8FF;
+    --text-color: #000000;
+    --bg-color: #FFFFFF;
+    --border-color: #E0E0E0;
+
+  /* 폰트 */
+    --text-small: 12px;
+    --text-medium: 16px;
+    --text-large: 20px;
+    --text-xlarge: 24px;
+
+  /* 기타 */
+    --border-radius: 4px; 
+    --header-height: 80px;
+    --footer-height: 50px;
+    --max-width: 375px;
+    --min-width: 320px;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background-color: var(--bg-color);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background-color: none;
+    cursor: pointer;
+    font-family: inherit;
+}
