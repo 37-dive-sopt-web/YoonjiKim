@@ -15,10 +15,10 @@
   --bg-color: #ffffff;
 
   /* 폰트 */
-  --text-small: 12px;
-  --text-medium: 16px;
-  --text-large: 20px;
-  --text-xlarge: 24px;
+  --text-small: 0.8rem;
+  --text-medium: 1rem;
+  --text-large: 1.2rem;
+  --text-xlarge: 1.4rem;
 
   /* 기타 */
   --border-radius: 4px;
@@ -40,7 +40,6 @@ ol {
 
 button {
   border: none;
-  background-color: none;
   cursor: pointer;
   font-family: inherit;
 }
@@ -58,7 +57,6 @@ a {
   left: 0;
   right: 0;
   height: var(--header-height);
-  border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-color);
   z-index: 1000; /* 다른 요소(ex. 카드)들 위에 표시 */
 }
