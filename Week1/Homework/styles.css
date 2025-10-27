@@ -117,7 +117,6 @@ a {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 12px; /* SNS 아이콘 사이 간격 */
 }
 
 .social-links {
@@ -504,12 +503,16 @@ a {
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--main-color);
+
 }
 
 .nav-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 2px;
 }
 
 .nav-item {
@@ -520,8 +523,8 @@ a {
   text-align: center;
   display: block;
   padding: 12px 20px;
-  background-color: white;
-  color: var(--text-color);
+  background-color: var(--main-color);
+  color: white;
   font-size: var(--text-small);
   font-weight: 500;
   transition: all 0.3s ease;
@@ -542,9 +545,9 @@ a {
 
 /* hover 효과 */
 .nav-link:hover {
-  background-color: var(--main-color);
-  color: white;
-  border-color: var(--main-color);
+  background-color: var(--bg-color);
+  color: var(--point-color);
+  border-color: var(--point-color);
 }
 
 /* 푸터 섹션 */
