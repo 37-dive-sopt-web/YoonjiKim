@@ -1,5 +1,6 @@
 /* css reset */
 * {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -504,7 +505,6 @@ a {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   background-color: var(--main-color);
-
 }
 
 .nav-list {
