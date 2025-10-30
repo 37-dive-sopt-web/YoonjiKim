@@ -1,0 +1,45 @@
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+:root {
+  /* 색상 */
+  --main-color: #ecd5ff;
+  --sub-color: #E5D9F2; /* 임시 */
+  --text-color: #333333;
+  --bg-color: #F5EFFF;
+  --section-color: #fff;
+
+  /* 폰트 */
+  --font-family: "Noto Sans KR", sans-serif;
+  --text-small: 0.8rem;
+  --text-medium: 1rem;
+  --text-large: 1.2rem;
+  --text-xlarge: 1.4rem;
+  --text-xxlarge: 2rem;
+
+}
+
+body {
+  min-width: 100vh;
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+  font-size: var(--text-medium);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* 기존 여백 제거 */
+h1, h2, h3, h4, h5, h6, p, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
