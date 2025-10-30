@@ -7,8 +7,8 @@
 :root {
   /* 색상 */
   --main-color: #ecd5ff;
-  --sub-color: #c48dff; /* 호버 등 */
-  --point-color: #c48dff;
+  --sub-color: #dbbaff; /* 호버 등 */
+  --point-color: #fce9ff;
   --text-color: #333333;
   --bg-color: #F5EFFF;
   --section-color: #fff;

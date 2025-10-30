@@ -65,7 +65,7 @@
 .member-table th {
   padding: 12px 10px;
   font-weight: 700;
-  background-color: var(--main-color);
+  background-color: var(--point-color);
 }
 
 .member-table td {
