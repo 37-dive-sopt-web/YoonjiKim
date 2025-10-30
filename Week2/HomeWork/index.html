@@ -6,6 +6,7 @@
     <title>웹계인 관리 페이지</title>
     <link rel="stylesheet" href="./styles/global.css" />
     <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/filter.css" />
   </head>
   <body>
     <header class="header">
@@ -38,16 +39,16 @@
             />
           </div>
 
-          <div class="form-group">
-            <label for="search-github-id">깃허브</label>
-            <input
-              type="text"
-              id="search-github-id"
-              placeholder="깃허브 아이디를 입력하세요"
-            />
-          </div>
-
-          <div class="form-select">
+          <!-- 3개: 깃허브, 성별, 역할 -->
+          <div class="form-row-3-group">
+            <div class="form-group">
+              <label for="search-github-id">깃허브</label>
+              <input
+                type="text"
+                id="search-github-id"
+                placeholder="깃허브 아이디를 입력하세요"
+              />
+            </div>
             <div class="form-group">
               <label for="search-gender">성별</label>
               <select id="search-gender">
@@ -66,7 +67,8 @@
             </div>
           </div>
 
-          <div class="form-select">
+          <!-- 2개: 금잔디조, 나이 -->
+          <div class="form-row-2-group">
             <div class="form-group">
               <label for="search-code-review-team">금잔디조</label>
               <input
