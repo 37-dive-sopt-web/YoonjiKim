@@ -20,7 +20,8 @@
 }
 
 .header-title {
-  font-size: var(--text-xlarge);
+  font-size: var(--text-xxlarge);
+  font-weight: 800;
   text-align: center;
   letter-spacing: 0.5px;
   justify-self: center;
@@ -28,6 +29,8 @@
 
 .header-author {
   font-size: var(--text-medium);
+  font-weight: 800;
+  color: #fff;
   text-align: right;
   justify-self: flex-end;
   white-space: nowrap;

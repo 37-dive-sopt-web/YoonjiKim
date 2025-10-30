@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/global.css" />
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/filter.css" />
+    <link rel="stylesheet" href="./styles/web-list.css" />
   </head>
   <body>
     <header class="header">
@@ -98,8 +99,44 @@
         </form>
       </section>
 
-      <section class="web-list">
+      <section class="weblist">
         <!--목록 필터 섹션-->
+        <header class="table-header">
+          <h3 class="table-title">37기 웹 파트 목록</h3>
+          <div class="table-btns">
+            <button class="delete-btn">선택 삭제</button>
+            <button class="add-btn">추가</button>
+          </div>
+        </header>
+
+        <table class="member-table">
+          <thead>
+            <tr>
+              <th><input type="checkbox" id="select-all" /></th>
+              <th>이름</th>
+              <th>영문 이름</th>
+              <th>깃허브</th>
+              <th>성별</th>
+              <th>역할</th>
+              <th>금잔디조</th>
+              <th>나이</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--ui용 임시-->
+            <tr>
+              <td><input type="checkbox" id="select-member" /></td>
+              <td>김윤지</td>
+              <td>YoonjiKim</td>
+              <td>yooncandooit</td>
+              <td>female</td>
+              <td>YB</td>
+              <td>7</td>
+              <td>21</td>
+            </tr>
+          </tbody>
+          <!-- Todo: js 데이터로 교체 -->
+        </table>
       </section>
     </main>
   </body>
