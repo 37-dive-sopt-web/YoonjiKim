@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>웹계인 관리 페이지</title>
     <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
   </head>
   <body>
     <header class="header">
@@ -14,10 +15,88 @@
     </header>
 
     <main>
-      <section>
+      <section class="search-filter">
         <!--검색 필터 섹션-->
+        <h3 class="search-title">검색 필터</h3>
+        <form class="search-form">
+          <!--텍스트 입력 폼 그룹-->
+          <div class="form-group">
+            <label for="search-name">이름</label>
+            <input
+              type="text"
+              id="search-name"
+              placeholder="이름을 입력하세요"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="search-eng-name">영문 이름</label>
+            <input
+              type="text"
+              id="search-eng-name"
+              placeholder="영문 이름을 입력하세요"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="search-github-id">깃허브</label>
+            <input
+              type="text"
+              id="search-github-id"
+              placeholder="깃허브 아이디를 입력하세요"
+            />
+          </div>
+
+          <div class="form-select">
+            <div class="form-group">
+              <label for="search-gender">성별</label>
+              <select id="search-gender">
+                <option value="">전체</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="search-role">역할</label>
+              <select id="search-role">
+                <option value="">전체</option>
+                <option value="YB">YB</option>
+                <option value="OB">OB</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-select">
+            <div class="form-group">
+              <label for="search-code-review-team">금잔디조</label>
+              <input
+                type="number"
+                id="search-code-review-team"
+                placeholder="금잔디조를 입력하세요 (1-9)"
+                min="1"
+                max="9"
+              />
+            </div>
+            <div class="form-group">
+              <label for="search-age">나이</label>
+              <input
+                type="number"
+                id="search-age"
+                placeholder="나이를 입력하세요"
+                min="0"
+              />
+            </div>
+          </div>
+
+          <!--버튼 그룹-->
+          <div class="search-btn">
+            <button type="submit" class="apply-btn">적용</button>
+            <button type="reset" class="reset-btn">초기화</button>
+          </div>
+        </form>
       </section>
-      <section>
+
+      <section class="web-list">
         <!--목록 필터 섹션-->
       </section>
     </main>
