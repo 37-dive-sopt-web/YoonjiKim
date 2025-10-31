@@ -280,9 +280,3 @@ export const members = [
     age: 23,
   },
 ];
-
-if (!localStorage.getItem("membersData")) {
-  localStorage.setItem("membersData", JSON.stringify(members));
-}
-
-export { members };

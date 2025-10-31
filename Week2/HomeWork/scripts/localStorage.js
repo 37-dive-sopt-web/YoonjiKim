@@ -1,4 +1,4 @@
-import { members } from "./data/members.js";
+import { members } from "../data/members.js";
 
 const LOCAL_STORAGE_KEY = "membersData";
 
