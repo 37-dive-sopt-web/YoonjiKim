@@ -20,7 +20,7 @@
 
 /* 모달 컨텐츠 */
 .modal-content {
-  position:relative;
+  position: relative;
   background-color: var(--section-color);
   border-radius: 8px;
   padding: 24px;
@@ -48,7 +48,7 @@
   font-size: var(--text-xxlarge);
   cursor: pointer;
   color: var(--text-color);
-  align-items:center;
+  align-items: center;
   justify-content: end;
 }
 

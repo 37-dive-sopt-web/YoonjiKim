@@ -26,4 +26,9 @@ const setLocalStorage = (value) => {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(value));
 };
 
-export { initLocalStorage, getLocalStorage, deleteLocalStorage, setLocalStorage };
+export {
+  initLocalStorage,
+  getLocalStorage,
+  deleteLocalStorage,
+  setLocalStorage,
+};

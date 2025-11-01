@@ -61,9 +61,7 @@ const handleDeleteSelected = () => {
     return;
   }
 
-  const confirmDelete = confirm(
-    `삭제하시겠습니까?`
-  );
+  const confirmDelete = confirm("삭제하시겠습니까?");
 
   if (!confirmDelete) return;
 

@@ -9,7 +9,7 @@
   z-index: 500;
   align-items: center;
   justify-content: center;
-  color: var(--text-color)
+  color: var(--text-color);
 }
 
 .header-icon {
