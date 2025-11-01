@@ -1,13 +1,10 @@
-const memberTableBody = document.getElementById("member-table-body");
-
-const renderTable = (data) => {
-
+const renderTable = (data, tbody) => {
   const tableHTML = data
     .map(
       ({
         id,
         name,
-        engName,
+        englishName,
         github,
         gender,
         role,
@@ -17,22 +14,22 @@ const renderTable = (data) => {
         <tr>
           <td><input type="checkbox" class="member-checkbox" data-id="${id}"/></td>
           <td>${name}</td>
-          <td>${engName}</td>
+          <td>${englishName}</td>
           <td>
             <a href="https://github.com/${github}" target="_blank" rel="noopener noreferrer">
               ${github}
             </a>
           </td>
-          <td>${gender === "male" ? "남성" : "여성"}</td>
+          <td>${gender === "male" ? "남자" : "여자"}</td>
           <td>${role}</td>
           <td>${codeReviewGroup}</td>
-          <td>${age}</td>
+          <td>${age}세</td>
         </tr>
       `
     )
     .join("");
 
-  memberTableBody.innerHTML = tableHTML;
+  tbody.innerHTML = tableHTML;
 };
 
 export { renderTable };
