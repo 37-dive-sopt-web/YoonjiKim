@@ -68,7 +68,7 @@
 .form-group select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: var(--text-medium);
   font-family: var(--font-family);

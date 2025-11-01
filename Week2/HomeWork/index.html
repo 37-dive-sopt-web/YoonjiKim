@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/filter.css" />
     <link rel="stylesheet" href="./styles/web-list.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
   </head>
   <body>
     <header class="header">
@@ -126,6 +127,99 @@
         </table>
       </section>
     </main>
+
+    <!-- 모달 -->
+    <div class="modal" id="add-modal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">웹계인 추가</h3>
+          <button class="modal-close-btn" aria-label="닫기">×</button>
+        </div>
+
+        <form class="modal-form">
+          <div class="modal-form-group">
+            <label for="modal-name">이름</label>
+            <input
+              type="text"
+              id="modal-name"
+              placeholder="이름을 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="modal-form-group">
+            <label for="modal-eng-name">영문 이름</label>
+            <input
+              type="text"
+              id="modal-eng-name"
+              placeholder="영문 이름을 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="modal-form-group">
+            <label for="modal-github-id">깃허브</label>
+            <input
+              type="text"
+              id="modal-github-id"
+              placeholder="깃허브 아이디를 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label for="modal-gender">성별</label>
+              <select id="modal-gender" required>
+                <option value="">선택</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </select>
+            </div>
+
+            <div class="modal-form-group">
+              <label for="modal-role">역할</label>
+              <select id="modal-role" required>
+                <option value="">선택</option>
+                <option value="YB">YB</option>
+                <option value="OB">OB</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label for="modal-code-review-team">금잔디조</label>
+              <input
+                type="number"
+                id="modal-code-review-team"
+                placeholder="금잔디조를 입력하세요 (1-9)"
+                min="1"
+                max="9"
+                required
+              />
+            </div>
+
+            <div class="modal-form-group">
+              <label for="modal-age">나이</label>
+              <input
+                type="number"
+                id="modal-age"
+                placeholder="나이를 입력하세요"
+                min="0"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="modal-submit-btn">추가</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
