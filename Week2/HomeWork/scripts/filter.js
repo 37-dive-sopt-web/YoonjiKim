@@ -1,11 +1,25 @@
 import { getLocalStorage } from "./localStorage.js";
+import { renderTable } from "./render-table.js";
+import { updateCheckboxState } from "./checkbox.js";
 
 const searchForm = document.querySelector(".search-form");
-let currentFilteredData = [];
+const tbody = document.getElementById("member-table-body");
+
+const nameFilter = document.getElementById("search-name");
+const engNameFilter = document.getElementById("search-eng-name");
+const githubFilter = document.getElementById("search-github-id");
+const genderFilter = document.getElementById("search-gender");
+const roleFilter = document.getElementById("search-role");
+const groupFilter = document.getElementById("search-code-review-team");
+const ageFilter = document.getElementById("search-age");
 
 const initializeFilter = () => {
   searchForm.addEventListener("submit", handleFilterSubmit);
   searchForm.addEventListener("reset", handleFilterReset);
+
+  // 초기 렌더링
+  const allMembers = getLocalStorage();
+  renderTable(allMembers, tbody);
 };
 
 const handleFilterSubmit = (e) => {
@@ -14,29 +28,17 @@ const handleFilterSubmit = (e) => {
   const allMembers = getLocalStorage();
   const filteredData = searchFilter(allMembers);
 
-  currentFilteredData = filteredData;
-
-  // Todo: 표 렌더링 추가
+  renderTable(filteredData, tbody);
+  updateCheckboxState();
 };
 
 const handleFilterReset = () => {
-  setTimeout(() => {
-    const allMembers = getLocalStorage();
-    currentFilteredData = allMembers;
-
-    // Todo: 표 렌더링 추가
-  }, 0);
+  const allMembers = getLocalStorage();
+  renderTable(allMembers, tbody);
+  updateCheckboxState();
 };
 
 const searchFilter = (data) => {
-  const nameFilter = document.getElementById("search-name");
-  const engNameFilter = document.getElementById("search-eng-name");
-  const githubFilter = document.getElementById("search-github-id");
-  const genderFilter = document.getElementById("search-gender");
-  const roleFilter = document.getElementById("search-role");
-  const groupFilter = document.getElementById("search-code-review-team");
-  const ageFilter = document.getElementById("search-age");
-
   const name = (nameFilter?.value || "").trim().toLowerCase();
   const engName = (engNameFilter?.value || "").trim().toLowerCase();
   const github = (githubFilter?.value || "").trim().toLowerCase();
@@ -69,13 +71,4 @@ const searchFilter = (data) => {
   });
 };
 
-const getCurrentFilteredData = () => {
-  return currentFilteredData;
-};
-
-const setCurrentFilteredData = (data) => {
-  currentFilteredData = data;
-};
-
-
-export { initializeFilter, setCurrentFilteredData, getCurrentFilteredData };
+export { initializeFilter, searchFilter };
