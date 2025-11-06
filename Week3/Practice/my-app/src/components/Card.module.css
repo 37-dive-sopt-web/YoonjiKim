@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: grid;
+  padding: 60px 60px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background-color: #fedeff;
+  margin: 10px;
+  gap: 10px;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 20px;
+  gap: 5px;
+  padding: 8px;
+}
