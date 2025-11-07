@@ -1,6 +1,8 @@
-import { Global, css } from '@emotion/react';
+import { Global, css } from "@emotion/react";
 import Header from "./components/Header";
 import { useState } from "react";
+import Game from "./pages/Game";
+import Ranking from "./pages/Ranking";
 
 const globalStyles = css`
   * {
@@ -17,7 +19,7 @@ function App() {
     <>
       <Global styles={globalStyles} />
       <Header activeBtn={activeBtn} onBtnChange={setActiveBtn} />
-      {activeBtn === 'game' ? '게임페이지' : '랭킹페이지'}
+      {activeBtn === 'game' ? <Game /> : <Ranking />}
     </>
   );
 }
