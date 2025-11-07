@@ -1,14 +1,14 @@
-import { Global } from "@emotion/react";
-import "./App.css";
 import Header from "./components/Header";
+import { useState } from "react";
+
 
 function App() {
+  const [activeBtn, setActiveBtn] = useState('game');
+
   return (
     <>
-      <Global
-        styles={{ body: { margin: 0, padding: 0, boxSizing: "border-box" } }}
-      />
-      <Header />
+      <Header activeBtn={activeBtn} onBtnChange={setActiveBtn} />
+      {activeBtn === 'game' ? '게임페이지' : '랭킹페이지'}
     </>
   );
 }

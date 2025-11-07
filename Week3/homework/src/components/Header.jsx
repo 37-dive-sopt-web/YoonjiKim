@@ -30,20 +30,20 @@ const Button = styled.button`
   color: ${(props) => (props.isActive ? "#a897ff" : "white")};
 `;
 
-const Header = ({ activeTab, onTabChange }) => {
+const Header = ({ activeBtn, onBtnChange }) => {
   return (
     <HeaderContainer>
       <Title>숫자 카드 짝 맞추기</Title>
       <ButtonContainer>
         <Button
-          isActive={activeTab === "game"}
-          onClick={() => onTabChange("game")}
+          isActive={activeBtn === "game"}
+          onClick={() => onBtnChange("game")}
         >
           게임
         </Button>
         <Button
-          isActive={activeTab === "ranking"}
-          onClick={() => onTabChange("ranking")}
+          isActive={activeBtn === "ranking"}
+          onClick={() => onBtnChange("ranking")}
         >
           랭킹
         </Button>
