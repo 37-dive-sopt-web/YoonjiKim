@@ -1,12 +1,32 @@
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import PokemonCard from "../components/PokemonCard";
+import axios from "axios";
 
 const Home = () => {
+  const [pokemonList, setPokemonList] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "https://pokeapi.co/api/v2/pokemon?limit=40"
+        );
+        setPokemonList(res.data.results);
+      } catch (err) {
+        console.log("에러: ", err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
       <h1>포켓몬 도감</h1>
       <div>
-        <Link to="/pokemon/피카츄">피카츄</Link>
-        <Link to="/pokemon/이상해씨">이상해씨</Link>
+        {pokemonList.map((pokemon) => (
+          <PokemonCard key={pokemon.name} name={pokemon.name} />
+        ))}
       </div>
     </div>
   );
