@@ -1,5 +1,5 @@
-import { createPortal } from 'react-dom';
-import styled from '@emotion/styled';
+import { createPortal } from "react-dom";
+import styled from "@emotion/styled";
 
 const Overlay = styled.div`
   position: fixed;
@@ -36,12 +36,14 @@ const Title = styled.h2`
   font-size: 1.5rem;
   padding-bottom: 12px;
   text-align: center;
+  background-color: #fff;
 `;
 
 const Message = styled.p`
   font-size: 1rem;
   color: gray;
   text-align: center;
+  background-color: #fff;
 `;
 
 const TimerText = styled.p`
@@ -50,6 +52,7 @@ const TimerText = styled.p`
   text-align: center;
   padding-top: 16px;
   font-weight: 600;
+  background-color: #fff;
 `;
 
 const Modal = ({ isOpen, title, isSuccess, message, LeftTime }) => {

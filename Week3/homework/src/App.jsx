@@ -9,17 +9,18 @@ const globalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #e3ddff;
   }
 `;
 
 function App() {
-  const [activeBtn, setActiveBtn] = useState('game');
+  const [activeBtn, setActiveBtn] = useState("game");
 
   return (
     <>
       <Global styles={globalStyles} />
       <Header activeBtn={activeBtn} onBtnChange={setActiveBtn} />
-      {activeBtn === 'game' ? <Game /> : <Ranking />}
+      {activeBtn === "game" ? <Game /> : <Ranking />}
     </>
   );
 }

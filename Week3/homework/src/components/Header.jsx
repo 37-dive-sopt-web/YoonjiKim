@@ -10,6 +10,7 @@ const HeaderContainer = styled.header`
 
 const Title = styled.h1`
   font-size: 2rem;
+  background-color: inherit;
   color: white;
   text-align: center;
 `;
@@ -18,6 +19,7 @@ const ButtonContainer = styled.div`
   display: flex;
   gap: 12px;
   justify-content: center;
+  background-color: inherit;
 `;
 
 const Button = styled.button`
