@@ -38,7 +38,7 @@ export const CardBack = styled(CardFace)`
 `;
 
 export const CardFront = styled(CardFace)`
-  background: #c1b6ff;
+  background: ${(props) => (props.isMatched ? "#a897ff" : "#d0c7ff")};
   color: white;
   transform: rotateY(180deg);
 `;
