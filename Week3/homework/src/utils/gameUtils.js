@@ -47,3 +47,5 @@ export const buildDeck = (level = 1) => {
   // 매 게임마다 다른 배치를 위해 마지막에 셔플
   return shuffle(duplicated);
 };
+
+export default buildDeck;
