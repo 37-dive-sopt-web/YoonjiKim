@@ -2,22 +2,22 @@
 export const saveGameRecord = (record) => {
   const records = getGameRecords();
   records.push({
-    ...record,
+    level: record.level,
+    clearTime: record.clearTime, // 원본 그대로 저장
     timestamp: new Date().toISOString(),
-    clearTime: parseFloat(record.clearTime.toFixed(2))
   });
-  localStorage.setItem('gameRecords', JSON.stringify(records));
+  localStorage.setItem("gameRecords", JSON.stringify(records));
 };
 
 // localStorage에서 게임 기록 불러오기
 export const getGameRecords = () => {
-  const records = localStorage.getItem('gameRecords');
+  const records = localStorage.getItem("gameRecords");
   return records ? JSON.parse(records) : [];
 };
 
 //localStorage의 게임 기록 초기화
 export const clearGameRecords = () => {
-  localStorage.removeItem('gameRecords');
+  localStorage.removeItem("gameRecords");
 };
 
 export default { saveGameRecord, getGameRecords, clearGameRecords };

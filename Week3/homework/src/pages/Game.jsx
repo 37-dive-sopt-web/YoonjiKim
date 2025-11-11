@@ -57,7 +57,7 @@ const Game = () => {
       // 게임 기록 저장
       saveGameRecord({
         level,
-        clearTime: clearedTime,
+        clearTime: Number(clearedTime.toFixed(2)),
       });
     }
   }, [

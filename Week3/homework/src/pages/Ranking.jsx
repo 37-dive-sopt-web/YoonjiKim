@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import * as S from "./Ranking.styles";
+import * as S from "./Ranking.styles.js";
 import { getGameRecords, clearGameRecords } from "../utils/localStorage";
 
 
@@ -34,11 +34,7 @@ const Ranking = () => {
     }
   };
 
-  /**
-   * 날짜 포맷팅 함수
-   * @param {string} timestamp - ISO 형식의 타임스탬프
-   * @returns {string} - 포맷된 날짜 문자열
-   */
+  // 날짜 포맷팅 함수
   const formatDate = (timestamp) => {
     const date = new Date(timestamp);
     return date.toLocaleString("ko-KR", {
