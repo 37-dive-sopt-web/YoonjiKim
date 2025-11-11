@@ -1,0 +1,82 @@
+.weblist {
+  display: grid;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 30px 30px;
+  margin: 20px 30px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.table-title {
+  color: var(--text-color);
+  margin-bottom: 8px;
+  font-size: var(--text-large);
+  font-weight: 800;
+}
+
+/* 테이블 버튼 */
+.table-btns {
+  gap: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.delete-btn,
+.add-btn {
+  padding: 10px 20px;
+  
+  border: none;
+  border-radius: 8px;
+  font-size: var(--text-medium);
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--main-color);
+}
+
+.delete-btn:hover,
+.add-btn:hover {
+  background-color: var(--sub-color);
+}
+
+/* 테이블 스타일 */
+.member-table {
+  width: 100%;
+  border-collapse: collapse; /* 열 사이 간격 없애기 */
+  background-color: #fff;
+  font-size: var(--text-medium);
+  border-bottom: #d0d0d0 0.5px solid;
+  text-align: center;
+}
+
+.member-table thead {
+  background-color: var(--point-color);
+  z-index: 100;
+}
+
+.member-table th {
+  padding: 12px 10px;
+  font-weight: 700;
+  background-color: var(--point-color);
+}
+
+.member-table td {
+  padding: 14px 12px;
+  font-size: var(--text-small);
+}
+
+/* 체크박스 스타일 */
+#select-all,
+#select-member {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}

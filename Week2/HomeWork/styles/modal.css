@@ -1,0 +1,118 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 모달 백 드롭 */
+.modal-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* 모달 컨텐츠 */
+.modal-content {
+  position: relative;
+  background-color: var(--section-color);
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;
+  z-index: 100;
+}
+
+/* 모달 헤더 */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: var(--text-large);
+}
+
+.modal-close-btn {
+  display: flex;
+  background: none;
+  border: none;
+  font-size: var(--text-xxlarge);
+  cursor: pointer;
+  color: var(--text-color);
+  align-items: center;
+  justify-content: end;
+}
+
+/* 모달 폼 */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-form-group label {
+  font-size: var(--text-small);
+  color: var(--text-color);
+}
+
+.modal-form-group input,
+.modal-form-group select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: var(--text-small);
+}
+
+.modal-form-group input:focus,
+.modal-form-group select:focus {
+  outline: none;
+  border-color: var(--main-color);
+}
+
+/* 1행 2개 */
+.modal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.modal-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-submit-btn {
+  padding: 10px 24px;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-submit-btn:hover {
+  background-color: var(--sub-color);
+}
+
+.modal-submit-btn:active {
+  background-color: var(--point-color);
+}
