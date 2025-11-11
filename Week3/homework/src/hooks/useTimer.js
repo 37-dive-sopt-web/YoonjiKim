@@ -21,17 +21,21 @@ export const useTimer = (initialTime, onTimeUp) => {
 
   // 타이머 정지
   const stopTimer = useCallback(() => {
-    setIsRunning((currentIsRunning) => {
-      if (currentIsRunning && startTime) {
-        setClearTime((Date.now() - startTime) / 1000);
-      }
-      return false;
-    });
-
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
+
+    let finalTime = 0;
+    if (startTime) {
+      finalTime = (Date.now() - startTime) / 1000;
+    }
+
+    // 상태 업데이트
+    setIsRunning(false);
+    setClearTime(finalTime);
+
+    return finalTime;
   }, [startTime]);
 
   // 타이머 리셋

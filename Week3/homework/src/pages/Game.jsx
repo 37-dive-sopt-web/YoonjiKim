@@ -13,6 +13,7 @@ const Game = () => {
   const [level, setLevel] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [leftTime, setLeftTime] = useState(COUNT_SECONDS);
+  const [finalClearTime, setFinalClearTime] = useState(0);
 
   const {
     cards,
@@ -35,10 +36,13 @@ const Game = () => {
     setIsModalOpen(true);
   };
 
-  const { timeRemaining, startTimer, resetTimer, getClearedTime } = useTimer(
-    config.timeLimit,
-    handleTimeUp
-  );
+  const {
+    timeRemaining,
+    startTimer,
+    stopTimer,
+    resetTimer,
+    getClearedTime,
+  } = useTimer(config.timeLimit, handleTimeUp);
 
   // 카드 클릭 시 타이머 시작
   const handleCardClickWithTimer = (cardId) => {
@@ -49,26 +53,16 @@ const Game = () => {
   // 모든 짝 맞추면 승리
   useEffect(() => {
     if (matchedPairs === totalPairs && totalPairs > 0 && !isGameOver) {
+      stopTimer();
       const clearedTime = getClearedTime();
+      setFinalClearTime(clearedTime);
+
       setIsGameOver(true);
       setIsWin(true);
       setIsModalOpen(true);
-
-      // 게임 기록 저장
-      saveGameRecord({
-        level,
-        clearTime: Number(clearedTime.toFixed(2)),
-      });
+      saveGameRecord({ level, clearTime: clearedTime });
     }
-  }, [
-    matchedPairs,
-    totalPairs,
-    isGameOver,
-    getClearedTime,
-    level,
-    setIsGameOver,
-    setIsWin,
-  ]);
+  }, [matchedPairs, totalPairs, isGameOver, stopTimer, getClearedTime, level, setIsGameOver, setIsWin]);
 
   // 게임 종료 후 카운트다운 & 초기화
   useEffect(() => {
@@ -80,6 +74,7 @@ const Game = () => {
         setLeftTime(COUNT_SECONDS);
         initializeGame();
         resetTimer(config.timeLimit);
+        setFinalClearTime(0);
       }, 1000);
       return () => clearTimeout(timerId);
     }
@@ -105,6 +100,7 @@ const Game = () => {
   useEffect(() => {
     setIsModalOpen(false);
     setLeftTime(COUNT_SECONDS);
+    setFinalClearTime(0);
   }, [level]);
 
   // 게임 리셋
@@ -186,7 +182,7 @@ const Game = () => {
         title={isWin ? "축하해요!!!" : "타임아웃!"}
         message={
           isWin
-            ? `${level}레벨을 ${getClearedTime().toFixed(2)}초만에 클리어 했어요!`
+            ? `${level}레벨을 ${finalClearTime.toFixed(2)}초만에 클리어 했어요!`
             : "시간이 초과되었어요. 다시 도전해보세요!"
         }
         isSuccess={isWin}

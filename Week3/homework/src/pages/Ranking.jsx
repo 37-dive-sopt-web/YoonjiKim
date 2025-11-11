@@ -77,7 +77,7 @@ const Ranking = () => {
               </S.Cell>
               <S.Cell>{formatDate(record.timestamp)}</S.Cell>
               <S.Cell highlight>Level {record.level}</S.Cell>
-              <S.Cell highlight>{record.clearTime.toFixed(2)}초</S.Cell>
+              <S.Cell highlight>{record.clearTime}초</S.Cell>
             </S.TableRow>
           ))
         )}
