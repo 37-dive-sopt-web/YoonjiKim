@@ -1,9 +1,8 @@
-// level, clearTime 등 게임 기록을 localStorage에 저장
+// 게임 기록(레벨, 타임스탬프)을 localStorage에 저장
 export const saveGameRecord = (record) => {
   const records = getGameRecords();
   records.push({
     level: record.level,
-    clearTime: record.clearTime, // 원본 그대로 저장
     timestamp: new Date().toISOString(),
   });
   localStorage.setItem("gameRecords", JSON.stringify(records));
