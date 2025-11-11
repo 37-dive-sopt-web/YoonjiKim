@@ -74,24 +74,25 @@ const Game = () => {
   useEffect(() => {
     if (!isModalOpen) return;
 
-    if (leftTime === 0) {
+    if (leftTime <= 0) {
       const timerId = setTimeout(() => {
         setIsModalOpen(false);
         setLeftTime(COUNT_SECONDS);
         initializeGame();
         resetTimer(config.timeLimit);
       }, 1000);
-
       return () => clearTimeout(timerId);
     }
 
-    if (leftTime > 0) {
-      const intervalId = setInterval(() => {
-        setLeftTime((prevTime) => prevTime - 1);
-      }, 1000);
+    // leftTime > 0일 때만 실행
+    const intervalId = setInterval(() => {
+      setLeftTime((prevTime) => {
+        if (prevTime <= 1) return 0;
+        return prevTime - 1;
+      });
+    }, 1000);
 
-      return () => clearInterval(intervalId);
-    }
+    return () => clearInterval(intervalId);
   }, [isModalOpen, leftTime, initializeGame, resetTimer, config.timeLimit]);
 
   // 레벨 변경 시 게임 초기화
@@ -99,6 +100,12 @@ const Game = () => {
     const newLevel = parseInt(e.target.value);
     setLevel(newLevel);
   };
+
+  // 레벨 변경 시 모달 닫기 및 타이머 초기화
+  useEffect(() => {
+    setIsModalOpen(false);
+    setLeftTime(COUNT_SECONDS);
+  }, [level]);
 
   // 게임 리셋
   const handleReset = () => {
