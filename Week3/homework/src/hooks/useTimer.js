@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
-export const useTimer = (initialTime, onTimeUp) => {  // 초기 시간 및 시간 종료 시 호출될 콜백 함수
+export const useTimer = (initialTime, onTimeUp) => {
   const [timeRemaining, setTimeRemaining] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
   const [clearTime, setClearTime] = useState(0);
@@ -8,40 +8,55 @@ export const useTimer = (initialTime, onTimeUp) => {  // 초기 시간 및 시�
   const intervalRef = useRef(null);
 
   // 타이머 시작
-  const startTimer = () => {
-    if (!isRunning) {
-      setIsRunning(true);
-      setStartTime(Date.now());
-      setClearTime(0);
-    }
-  };
+  const startTimer = useCallback(() => {
+    setIsRunning((current) => {
+      if (!current) {
+        setStartTime(Date.now());
+        setClearTime(0);
+        return true;
+      }
+      return current;
+    });
+  }, []);
 
   // 타이머 정지
-  const stopTimer = () => {
-    if (isRunning && startTime) {
-      setClearTime((Date.now() - startTime) / 1000); // 클리어 시점의 시간 저장
-        }
-    setIsRunning(false);
+  const stopTimer = useCallback(() => {
+    setIsRunning((currentIsRunning) => {
+      if (currentIsRunning && startTime) {
+        setClearTime((Date.now() - startTime) / 1000);
+      }
+      return false;
+    });
+
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-  };
+  }, [startTime]);
 
-  // 타이머 리셋 (기본값: initialTime)
-  const resetTimer = (newTime = initialTime) => {
-    stopTimer();
-    setTimeRemaining(newTime);
-    setStartTime(null);
-    setClearTime(0); // 클리어 시점의 시간도 초기화
-  };
+  // 타이머 리셋
+  const resetTimer = useCallback(
+    (newTime = initialTime) => {
+      // interval 직접 정리
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
 
-  // 경과 시간 계산 (초 단위)
-  const getClearedTime = () => {
-    if (!startTime) return clearTime; // startTime이 없으면 저장된 값 반환
-    if (!isRunning) return clearTime; // 정지 상태면 저장된 값 반환
-    return (Date.now() - startTime) / 1000; // 실행 중이면 실시간 계산
-  };
+      setIsRunning(false);
+      setTimeRemaining(newTime);
+      setStartTime(null);
+      setClearTime(0);
+    },
+    [initialTime]
+  );
+
+  // 클리어 시간 계산
+  const getClearedTime = useCallback(() => {
+    if (!startTime) return clearTime;
+    if (!isRunning) return clearTime;
+    return (Date.now() - startTime) / 1000;
+  }, [startTime, isRunning, clearTime]);
 
   // 타이머 실행
   useEffect(() => {
@@ -63,12 +78,20 @@ export const useTimer = (initialTime, onTimeUp) => {  // 초기 시간 및 시�
         clearInterval(intervalRef.current);
       }
     };
-  }, [isRunning, onTimeUp]);
+  }, [isRunning, onTimeUp, stopTimer]);
 
-  // initialTime 변경 시 리셋
+  // initialTime 변경시 리셋
   useEffect(() => {
-    resetTimer(initialTime);
-  }, [initialTime]);
+    // 직접 상태 업데이트
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    setIsRunning(false);
+    setTimeRemaining(initialTime);
+    setStartTime(null);
+    setClearTime(0);
+  }, [initialTime]); // resetTimer 제거
 
   return {
     timeRemaining,
