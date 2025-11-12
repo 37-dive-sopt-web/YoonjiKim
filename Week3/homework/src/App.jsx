@@ -1,17 +1,10 @@
-import { Global, css } from "@emotion/react";
+import { Global } from "@emotion/react";
+import { globalStyles } from "./styles/reset";
+
 import Header from "./components/Header";
 import { useState } from "react";
 import Game from "./pages/Game";
 import Ranking from "./pages/Ranking";
-
-const globalStyles = css`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #e3ddff;
-  }
-`;
 
 function App() {
   const [activeBtn, setActiveBtn] = useState("game");
