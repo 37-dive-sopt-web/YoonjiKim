@@ -4,11 +4,13 @@ import { cn } from '@/utils/cn';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: 'primary' | 'cancel' | 'delete';
+  fullWidth?: boolean;
 }
 
 const Button = ({ 
   children, 
   variant = 'primary', 
+  fullWidth = false,
   className,
   ...props 
 }: ButtonProps) => {
@@ -20,7 +22,7 @@ const Button = ({
 
   return (
     <button
-      className={cn(variantClass, className)}
+      className={cn(variantClass, fullWidth && 'w-full', className)}
       {...props}
     >
       {children}
