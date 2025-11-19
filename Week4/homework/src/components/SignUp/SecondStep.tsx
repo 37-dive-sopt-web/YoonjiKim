@@ -74,7 +74,7 @@ const SecondStep = ({ register, errors, watch, onNext, onPrev, isValid }: Second
         <Button type="button" variant="cancel" fullWidth onClick={onPrev}>
           이전
         </Button>
-        <Button type="button" fullWidth disabled={!isValid || passwordMismatch} onClick={onNext}>
+        <Button type="button" fullWidth disabled={!isValid || !!passwordMismatch} onClick={onNext}>
           다음
         </Button>
       </div>
