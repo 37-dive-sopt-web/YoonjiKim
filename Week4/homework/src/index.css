@@ -51,8 +51,8 @@
 
   .btn-cancel {
     @apply btn-base bg-gray-300 text-gray-700 hover:bg-gray-400;
-  } 
-  
+  }
+
   .btn-delete {
     @apply btn-base bg-danger text-white hover:bg-danger-dark;
   }

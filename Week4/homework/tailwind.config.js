@@ -12,7 +12,7 @@ export default {
           light: '#e9d5ff',
           dark: '#c084fc',
         },
-        cancle: {
+        cancel: {
           DEFAULT: '#9ca3af',
           light: '#d1d5db',
           dark: '#6b7280',
