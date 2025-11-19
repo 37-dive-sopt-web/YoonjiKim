@@ -25,7 +25,7 @@ const LoginPage = () => {
   });
 
   const onSubmit = (data: LoginFormData) => {
-    // todo: 로그인 로직 구현
+    // Todo: 로그인 로직 구현
     console.log(data);
   };
 
