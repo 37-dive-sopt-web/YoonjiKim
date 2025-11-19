@@ -5,6 +5,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: 'primary' | 'cancel' | 'delete';
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const Button = ({ 
