@@ -1,7 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
-import SignUpPage from '../components/SignUp';
+import SignUpPage from '../pages/SignUpPage';
 import MyPage from '../pages/MyPage';
+import SearchUserPage from '@/pages/SearchUserPage';
+import DeleteUserPage from '@/pages/DeleteUserPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 const router = createBrowserRouter([
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
   {
     path: '/mypage',
     element: <MyPage />,
+  },
+  {
+    path: '/mypage/search',
+    element: <SearchUserPage />,
+  },
+  {
+    path: '/mypage/delete',
+    element: <DeleteUserPage />,
   },
   {
     path: '*',
