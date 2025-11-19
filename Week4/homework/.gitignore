@@ -66,5 +66,5 @@ thumb
 sketch
 
 .gitkeep
-.env
+.env.*
 # End of https://www.toptal.com/developers/gitignore/api/macos,react,git

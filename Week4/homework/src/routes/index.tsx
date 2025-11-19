@@ -1,19 +1,30 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
+import LoginPage from '../pages/LoginPage';
+import SignUpPage from '../pages/SignUpPage';
+import MyPage from '../pages/MyPage';
+import NotFoundPage from '../pages/NotFoundPage';
 
-import Layout from "@/layouts";
-import LoginPage from "@/pages/Login/LoginPage";
-import NotFoundPage from "@/pages/NotFoundPage";
-
-export const router = createBrowserRouter([
-	{
-		path: "/",
-    errorElement: <NotFoundPage />,
-		element: <Layout />,
-		children: [
-			{
-				index: true,
-				element: <LoginPage />,
-			}, // Pages 추가
-		],
-	},
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LoginPage />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/signup',
+    element: <SignUpPage />,
+  },
+  {
+    path: '/mypage',
+    element: <MyPage />,
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
 ]);
+
+export default router;

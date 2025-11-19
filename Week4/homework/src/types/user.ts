@@ -1,12 +1,17 @@
-export interface User {
+interface User {
   id: number;
+  username: string;
   name: string;
   email: string;
   age: number;
-  status: 'ACTIVE' | 'INACTIVE';
 }
 
-export interface SignupRequest {
+interface LoginRequest {
+  username: string;
+  password: string;
+}
+
+interface SignUpRequest {
   username: string;
   password: string;
   name: string;
@@ -14,17 +19,10 @@ export interface SignupRequest {
   age: number;
 }
 
-export interface LoginRequest {
-  username: string;
-  password: string;
+interface UpdateUserRequest {
+  name?: string;
+  email?: string;
+  age?: number;
 }
 
-export interface UpdateUserRequest {
-  name: string;
-  email: string;
-  age: number;
-}
-
-export interface DeleteUserRequest {
-  id: string;
-} 
+export type { User, LoginRequest, SignUpRequest, UpdateUserRequest };
